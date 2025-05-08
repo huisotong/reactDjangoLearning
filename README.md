@@ -43,13 +43,39 @@ cd reactDjangoLearning
    pip install -r requirements.txt
    ```
 
-### 3. Run the Application
+### 3. Apply Migrations
+1. Create migrations for the `api` app:
+   ```bash
+   python manage.py makemigrations
+   ```
+   - You should see output like:
+     ```
+     Migrations for 'api':
+       api\migrations\0001_initial.py
+         + Create model Note
+     ```
+
+2. Apply the migrations to the database:
+   ```bash
+   python manage.py migrate
+   ```
+   - You should see output like:
+     ```
+     Operations to perform:
+       Apply all migrations: admin, api, auth, contenttypes, sessions
+     Running migrations:
+       Applying api.0001_initial... OK
+     ```
+
+### 4. Run the Application
 - Start the Django development server:
    ```bash
    python manage.py runserver
    ```
+- The server will start, and you can access the application at:
+  - Backend: `http://127.0.0.1:8000/`
 
-### 4. Deactivate the Environment
+### 5. Deactivate the Environment
 When finished, deactivate the virtual environment:
 ```bash
 deactivate
